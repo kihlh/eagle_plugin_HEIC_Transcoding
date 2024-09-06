@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import { item_list, new_ext } from "../config.ts";
-import { formatFileSize, predictElementSize } from "../callBackFun.ts";
+import { item_list, new_ext ,UI,defaultPageImag} from "../config.ts";
+import { formatFileSize, predictElementSize, loadThumbnailImagError } from "../callBackFun.ts";
 
 </script>
 
@@ -10,21 +10,35 @@ import { formatFileSize, predictElementSize } from "../callBackFun.ts";
   <div class="start_main" style="">
     <div class="tab_names tab_grid">
       <div></div>
-      <div><a>文件名</a></div>
-      <div><a>原格式</a></div>
-      <div><a>原大小</a></div>
-      <div><a>转换后大小</a></div>
+      <div><a class="smoothed"> {{UI.fileName||'文件名'}} </a></div>
+      <div><a class="smoothed"> {{UI.originalFormat||'原格式'}} </a></div>
+      <div><a class="smoothed"> {{UI.originalSize||'原大小'}} </a></div>
+      <div><a class="smoothed"> {{UI.newSize||'转换后大小'}} </a></div>
     </div>
 
     <div class="item_list">
 
-      <div class="item_form tab_grid" v-for="item in item_list">
-        <div> <img :src="item.thumbnailURL">
+      <div v-show="item_list.length ? false : true" class="not_item_list_defaultPage">
+        <div  >
+          <img :src="defaultPageImag" id="not_item_list_default_Page_Imag" style="pointer-events: none;" ppp="本图片授权自pixeltrue,允许任何组织或个人免费使用">
+          <a> {{UI.not_item_defaultPage||'没有选择可识别的图片，可以在Eagle选中需要的图片点击 [获取选中] '}} </a>
         </div>
-        <div class="showPathNameBox"><a class="showPathName">{{ item.name }}</a></div>
-        <div><a>{{ item?.path?.match(/[.]([0-9a-z]+)$/i)?.[1]?.toUpperCase() || "未知" }}</a></div>
-        <div><a>{{ formatFileSize(item?.size||0) }}</a></div>
-        <div><a>{{ item.new_size ? formatFileSize(item.new_size) : `${predictElementSize(new_ext, item) ==
+      </div>
+      <div class="item_form tab_grid" v-for="item in item_list" v-show="item_list.length ? true : false">
+        <!-- 缩略图 -->
+        <div>
+          <img :src="item.thumbnailURL" class="thumbnailImag" :onerror="() => loadThumbnailImagError(item)">
+        </div>
+        <!-- 名称 -->
+        <div class="showPathNameBox smoothed"><a class="showPathName">{{ item.name }}</a></div>
+        <!-- 格式 -->
+        <div><a class="smoothed">{{ item?.path?.match(/[.]([0-9a-z]+)$/i)?.[1]?.toUpperCase()?.slice(0, 5) || (UI.Unknown||"未知" )}}</a>
+        </div>
+        <!-- 原大小 -->
+        <div><a class="smoothed">{{ formatFileSize(item?.size || 0) }}</a></div>
+        <!-- 预估大小 -->
+        <div><a class="smoothed">{{ item.new_size ? formatFileSize(item.new_size) : `${predictElementSize(new_ext, item)
+          ==
           item.size ? "" : "≈ "}${formatFileSize(item.size_estimate||0) }` }}</a></div>
 
         <div>
@@ -45,16 +59,60 @@ import { formatFileSize, predictElementSize } from "../callBackFun.ts";
 </template>
 
 <style scoped>
-.showPathNameBox{
+.not_item_list_defaultPage {
+  height: 39vh;
+  width: 100vw;
+  max-height: 500px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  top: 200px;
+}
+.not_item_list_defaultPage>div{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  color: #8b94af;
+  padding-top: 20px;
+
+  -webkit-animation-name: popIn;
+  animation-name: popIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+
+}
+
+.not_item_list_defaultPage img {
+  width: 300px;
+  object-fit: contain;
+}
+
+.thumbnailImag {
+  background: white;
+  background-image: "url(assets/icon.png)";
+}
+
+.showPathNameBox {
   overflow: hidden;
   white-space: nowrap;
   justify-content: flex-start !important;
   padding: 2px 5px;
 }
-.showPathName{
-  
+
+.showPathName {
+  max-width: 100%;
   text-overflow: ellipsis;
+  padding: 2px 5px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
 }
+
 .item_list {
   min-width: 100vw;
   width: 100vw;
@@ -137,6 +195,7 @@ import { formatFileSize, predictElementSize } from "../callBackFun.ts";
   color: rgb(43, 105, 89);
   user-select: none;
   pointer-events: none;
+  font-weight: 600;
 }
 
 .start_iput {

@@ -1,12 +1,14 @@
 {
     "id": "1976a667-a7bc-45bb-ab65-ad713026e03c",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "platform": "win",
     "arch": "x64",
-    "name": "HEIC转码",
+    "name": "KK图像转码器",
     "logo": "/assets/icon.png",
     "keywords": [
         "HEIC转码",
+        "格式转换",
+        "ICON",
         "无损转码",
         "转码"
     ],

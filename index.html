@@ -1,21 +1,31 @@
 <!doctype html>
-<html lang="en"  class="dark">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="./assets/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link id="not_item_list_default_Page_Imag_URL" type="image/png" href="./assets/Error.png">
+
+    <link rel="alternate icon" class="favicon" id="favicon" type="image/png" href="./assets/icon.ico">
+    <link id="defaultThumbnail" type="image/png" href="./assets/picture_icon.png" alt="https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE?license=mit2" >
+
     <link rel="stylesheet" crossorigin href="./assets/index.css">
+    <style>
+        body *{
+            font-family: PingFang SC, system-ui, -apple-system, BlinkMacSystemFont, Helvetica Neue, Hiragino Sans GB, Microsoft YaHei UI, Microsoft YaHei, Arial, sans-serif,Open Sans, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol !important;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script async>
-        if(eagle.isDev){
-            fetch("http://localhost:5173/").then(()=>{
+        if (eagle.isDev) {
+            fetch("http://localhost:5173/").then(() => {
                 location.href = "http://localhost:5173/";
-            }).catch(()=>{});
+            }).catch(() => { });
         }
     </script>
     <script src="./assets/polyfills-legacy.js"></script>

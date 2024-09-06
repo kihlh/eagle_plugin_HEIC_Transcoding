@@ -228,3 +228,13 @@ body{
 html.dark{
     --el-color-primary: #74aae196 !important;
 }
+
+body *{
+    /* font-weight: 400; */
+    font-family: "-apple-system","SF Pro Text","Helvetica Neue","Helvetica","Roboto","Arial","PingFang SC","PingFang TC","Hiragino Sans GB","Microsoft Yahei","Microsoft Jhenghei","sans-serif","system-ui","BlinkMacSystemFont","Microsoft YaHei UI","Microsoft YaHei","Open Sans","Segoe UI","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol" !important;
+}
+
+.smoothed {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }

@@ -3,14 +3,16 @@
     "version": "1.0.1",
     "platform": "win",
     "arch": "x64",
-    "name": "HEIC转码",
+    "name": "KK图像转码器",
     "logo": "/assets/icon.png",
     "keywords": [
         "HEIC转码",
+        "格式转换",
+        "ICON",
         "无损转码",
         "转码"
     ],
-    "devTools": false,
+    "devTools": true,
     "main": {
         "url": "index.html",
         "width": 800,
