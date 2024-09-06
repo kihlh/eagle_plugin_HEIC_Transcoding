@@ -1,0 +1,22 @@
+{
+    "id": "1976a667-a7bc-45bb-ab65-ad713026e03c",
+    "version": "1.0.0",
+    "platform": "win",
+    "arch": "x64",
+    "name": "HEIC转码",
+    "logo": "/assets/icon.png",
+    "keywords": [
+        "HEIC转码",
+        "无损转码",
+        "转码"
+    ],
+    "devTools": true,
+    "main": {
+        "url": "index.html",
+        "width": 800,
+        "height": 728,
+        "minWidth": 398,
+        "minHeight": 400,
+        "frame":false
+    }
+}

@@ -1,0 +1,230 @@
+
+body{
+  background: #171717 !important;
+  margin: 0 auto;
+}
+
+#app{
+  background: #171717 !important;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 45px 1fr 70px;
+  grid-column-gap: 0px;
+  grid-row-gap: 13px;
+}
+
+
+
+
+.popIn {
+  -webkit-animation-name: popIn;
+  animation-name: popIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s
+}
+
+@keyframes popIn {
+  0% {
+      -webkit-transform: scale3d(0,0,0);
+      transform: scale3d(0,0,0);
+      opacity: 0
+  }
+
+  20% {
+      opacity: 1
+  }
+
+  40% {
+      -webkit-animation-timing-function: cubic-bezier(0.47,0,0.745,0.715);
+      animation-timing-function: cubic-bezier(0.47,0,0.745,0.715);
+      -webkit-transform: scale3d(1.08,1.08,1.08);
+      transform: scale3d(1.08,1.08,1.08)
+  }
+
+  60% {
+      -webkit-animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      -webkit-transform: scale3d(1,1,1);
+      transform: scale3d(1,1,1)
+  }
+
+  80% {
+      -webkit-animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      -webkit-transform: scale3d(1.03,1.03,1.03);
+      transform: scale3d(1.03,1.03,1.03)
+  }
+
+  100% {
+      -webkit-animation-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+      animation-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+      -webkit-transform: scale3d(1,1,1);
+      transform: scale3d(1,1,1)
+  }
+}
+
+@-webkit-keyframes hvr-wobble-horizontal {
+  16.65% {
+      -webkit-transform: translateX(8px);
+      transform: translateX(8px)
+  }
+
+  33.3% {
+      -webkit-transform: translateX(-6px);
+      transform: translateX(-6px)
+  }
+
+  49.95% {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px)
+  }
+
+  66.6% {
+      -webkit-transform: translateX(-2px);
+      transform: translateX(-2px)
+  }
+
+  83.25% {
+      -webkit-transform: translateX(1px);
+      transform: translateX(1px)
+  }
+
+  100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0)
+  }
+}
+
+@keyframes hvr-wobble-horizontal {
+  16.65% {
+      -webkit-transform: translateX(8px);
+      transform: translateX(8px)
+  }
+
+  33.3% {
+      -webkit-transform: translateX(-6px);
+      transform: translateX(-6px)
+  }
+
+  49.95% {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px)
+  }
+
+  66.6% {
+      -webkit-transform: translateX(-2px);
+      transform: translateX(-2px)
+  }
+
+  83.25% {
+      -webkit-transform: translateX(1px);
+      transform: translateX(1px)
+  }
+
+  100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0)
+  }
+}
+
+.hvr-wobble-horizontal {
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent
+}
+
+.hvr-wobble-horizontal:active,.hvr-wobble-horizontal:focus,.hvr-wobble-horizontal:hover {
+  -webkit-animation-name: hvr-wobble-horizontal;
+  animation-name: hvr-wobble-horizontal;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1
+}
+
+.popInTop {
+  -webkit-animation-name: popInTop;
+  animation-name: popInTop
+}
+
+@keyframes popInTop {
+  0% {
+      -webkit-transform: translate3d(0,-200px,0) scale3d(.1,.1,.1);
+      transform: translate3d(0,-200px,0) scale3d(.1,.1,.1);
+      opacity: 0
+  }
+
+  40% {
+      opacity: 1;
+      -webkit-animation-timing-function: cubic-bezier(0.47,0,0.745,0.715);
+      animation-timing-function: cubic-bezier(0.47,0,0.745,0.715);
+      -webkit-transform: translate3d(0,0,0) scale3d(1.08,1.08,1.08);
+      transform: translate3d(0,0,0) scale3d(1.08,1.08,1.08)
+  }
+
+  60% {
+      -webkit-animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+      transform: translate3d(0,0,0) scale3d(1,1,1)
+  }
+
+  80% {
+      -webkit-animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      animation-timing-function: cubic-bezier(0.42,0,0.58,1);
+      -webkit-transform: translate3d(0,0,0) scale3d(1.03,1.03,1.03);
+      transform: translate3d(0,0,0) scale3d(1.03,1.03,1.03)
+  }
+
+  100% {
+      -webkit-animation-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+      animation-timing-function: cubic-bezier(0.25,0.46,0.45,0.94);
+      -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+      transform: translate3d(0,0,0) scale3d(1,1,1)
+  }
+}
+
+.AvatarBackg {
+  -webkit-animation-name: AvatarBackg;
+  animation-name: AvatarBackg;
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s
+}
+
+@keyframes AvatarBackg {
+  0% {
+      right: -5px
+  }
+
+  20% {
+      right: 2px
+  }
+
+  50% {
+      right: 5px
+  }
+
+  80% {
+      right: 6px
+  }
+
+  100% {
+      right: 9px
+  }
+}
+
+.tippy-box[data-theme] {
+  font-family: MiSans-Medium;
+  color: rgba(158,174,198,.808)
+}
+
+html.dark{
+    --el-color-primary: #74aae196 !important;
+}
