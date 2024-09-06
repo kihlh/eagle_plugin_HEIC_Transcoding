@@ -1,6 +1,6 @@
 {
     "id": "1976a667-a7bc-45bb-ab65-ad713026e03c",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "platform": "win",
     "arch": "x64",
     "name": "HEIC转码",
@@ -10,7 +10,7 @@
         "无损转码",
         "转码"
     ],
-    "devTools": true,
+    "devTools": false,
     "main": {
         "url": "index.html",
         "width": 800,
